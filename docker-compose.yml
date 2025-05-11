@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  base-sepolia:
+    image: ghcr.io/openvino/base-sepolia:latest
+    restart: always
+    hostname: base-sepolia.base-sepolia.dappnode
+    ports:
+      - "8545:8545"
+      - "6060:6060"
+      - "30303:30303/tcp"
+      - "30303:30303/udp"
+    volumes:
+      - base_sepolia_data:/data
+    networks:
+      - dappnode_default
+
+volumes:
+  base_sepolia_data:
+
+networks:
+  dappnode_default:
+    external: true

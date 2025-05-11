@@ -1,0 +1,41 @@
+{
+  "name": "base-sepolia.dnp.dappnode.eth",
+  "version": "0.1.0",
+  "description": "Base Sepolia Execution Node (Reth)",
+  "type": "service",
+  "author": "OpenVinoDAO",
+  "image": "ghcr.io/openvino/base-sepolia:latest",
+  "license": "MIT",
+  "wui": true,
+  "wuiPath": "http://base-sepolia.base-sepolia.dappnode",
+  "ports": [
+    {
+      "containerPort": 8545,
+      "hostPort": 8545,
+      "protocol": "tcp"
+    },
+    {
+      "containerPort": 6060,
+      "hostPort": 6060,
+      "protocol": "tcp"
+    },
+    {
+      "containerPort": 30303,
+      "hostPort": 30303,
+      "protocol": "tcp"
+    },
+    {
+      "containerPort": 30303,
+      "hostPort": 30303,
+      "protocol": "udp"
+    }
+  ],
+  "volumes": [
+    {
+      "mountPoint": "/data",
+      "readOnly": false,
+      "description": "Reth data directory"
+    }
+  ]
+}
+
