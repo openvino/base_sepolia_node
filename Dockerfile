@@ -9,11 +9,12 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Download and install the latest Reth binary from GitHub releases
-RUN curl -L https://github.com/paradigmxyz/reth/releases/latest/download/reth-ubuntu-latest.zip -o reth.zip \
-    && unzip reth.zip \
-    && mv reth /usr/local/bin/reth \
-    && chmod +x /usr/local/bin/reth \
-    && rm -f reth.zip
+RUN curl -L https://github.com/paradigmxyz/reth/releases/download/v1.3.12/reth-v1.3.12-x86_64-unknown-linux-gnu.tar.gz -o reth.tar.gz && \
+    tar -xzf reth.tar.gz && \
+    mv reth /usr/local/bin/reth && \
+    chmod +x /usr/local/bin/reth && \
+    rm -f reth.tar.gz
+
 
 # Create data directory
 RUN mkdir -p /data
