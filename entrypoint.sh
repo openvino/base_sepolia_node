@@ -1,6 +1,6 @@
 #!/bin/bash
 exec reth node \
-  --chain base-sepolia \
+  --chain /base-sepolia.json \
   --http \
   --http.addr 0.0.0.0 \
   --http.port 8545 \

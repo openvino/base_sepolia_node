@@ -19,6 +19,9 @@ RUN curl -L https://github.com/paradigmxyz/reth/releases/download/v1.3.12/reth-v
 # Create data directory
 RUN mkdir -p /data
 
+# Copy base sepolia specs
+COPY base-sepolia.json /base-sepolia.json
+
 # Copy entrypoint script
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

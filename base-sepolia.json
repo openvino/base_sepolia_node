@@ -1,0 +1,34 @@
+{
+  "name": "base-sepolia",
+  "chainId": 84532,
+  "genesis": {
+    "nonce": "0x0000000000000000",
+    "timestamp": "0x0",
+    "extraData": "0x",
+    "gasLimit": "0x1c9c380",
+    "difficulty": "0x1",
+    "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coinbase": "0x0000000000000000000000000000000000000000",
+    "alloc": {},
+    "baseFeePerGas": "0x7"
+  },
+  "params": {
+    "chainId": 84532,
+    "homesteadBlock": 0,
+    "eip150Block": 0,
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0,
+    "berlinBlock": 0,
+    "londonBlock": 0,
+    "arrowGlacierBlock": 0,
+    "grayGlacierBlock": 0,
+    "shanghaiBlock": 0,
+    "mergeForkBlock": 0,
+    "terminalTotalDifficulty": "0x0"
+  },
+  "bootnodes": []
+}
