@@ -14,7 +14,7 @@ services:
       - base_sepolia_data:/data
       - ./jwt.hex:/data/jwt.hex
     networks:
-      - dappnode_default
+      - base_sepolia_test
 
 volumes:
   base_sepolia_data:
