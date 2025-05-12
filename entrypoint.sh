@@ -9,4 +9,4 @@ exec reth node \
   --datadir /data \
   --authrpc.addr 0.0.0.0 \
   --authrpc.port 8551 \
-  --authrpc.jwtsecret /data/jwt.hex
+  --authrpc.jwtsecret /jwt/jwt.hex
