@@ -14,11 +14,11 @@ services:
       - base_sepolia_data:/data
       - ./jwt.hex:/data/jwt.hex
     networks:
-      - base_sepolia_test
+      - base-sepolia-test
 
 volumes:
   base_sepolia_data:
 
 networks:
-  base_sepolia_test:
+  base-sepolia-test:
     external: true
