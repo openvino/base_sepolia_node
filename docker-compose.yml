@@ -12,12 +12,13 @@ services:
       - "30303:30303/udp"
     volumes:
       - base_sepolia_data:/data
-      - ./jwt.hex:/data/jwt.hex
+      - jwt_shared:/data/jwt.hex
     networks:
       - base-sepolia-test
 
 volumes:
   base_sepolia_data:
+  jwt_shared:
 
 networks:
   base-sepolia-test:
