@@ -6,4 +6,7 @@ exec reth node \
   --http.port 8545 \
   --port 30303 \
   --metrics 0.0.0.0:6060 \
-  --datadir /data
+  --datadir /data \
+  --authrpc.addr 0.0.0.0 \
+  --authrpc.port 8551 \
+  --authrpc.jwtsecret /data/jwt.hex

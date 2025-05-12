@@ -12,6 +12,7 @@ services:
       - "30303:30303/udp"
     volumes:
       - base_sepolia_data:/data
+      - ./jwt.hex:/data/jwt.hex
     networks:
       - dappnode_default
 
