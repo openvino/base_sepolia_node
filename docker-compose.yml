@@ -20,5 +20,5 @@ volumes:
   base_sepolia_data:
 
 networks:
-  dappnode_default:
+  base_sepolia_test:
     external: true
