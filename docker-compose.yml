@@ -1,25 +1,42 @@
-version: '3'
+version: '3.8'
 
 services:
   base-sepolia:
     image: ghcr.io/openvino/base-sepolia:latest
+    container_name: base-sepolia
     restart: always
     hostname: base-sepolia.base-sepolia.dappnode
     ports:
-      - "8545:8545"
-      - "6060:6060"
+      - "8545:8545"     # JSON-RPC (HTTP)
+      - "8551:8551"     # Engine API (auth)
+      - "6060:6060"     # Prometheus metrics
       - "30303:30303/tcp"
       - "30303:30303/udp"
+    command: >
+      --chain sepolia
+      --datadir /data
+      --authrpc.addr 0.0.0.0
+      --authrpc.port 8551
+      --authrpc.jwtsecret /jwt/jwt.hex
+      --http
+      --http.addr 0.0.0.0
+      --http.port 8545
+      --metrics 0.0.0.0:6060
+      --bootnodes=enr:-J24QNz9lbrKbN4iSmmjtnr7SjUMk4zB7f1krHZcTZx-JRKZd0kA2gjufUROD6T3sOWDVDnFJRvqBBo62zuF-hYCohOGAYiOoEyEgmlkgnY0gmlwhAPniryHb3BzdGFja4OFQgCJc2VjcDI1NmsxoQKNVFlCxh_B-716tTs-h1vMzZkSs1FTu_OYTNjgufplG4N0Y3CCJAaDdWRwgiQG,enr:-J24QH-f1wt99sfpHy4c0QJM-NfmsIfmlLAMMcgZCUEgKG_BBYFc6FwYgaMJMQN5dsRBJApIok0jFn-9CS842lGpLmqGAYiOoDRAgmlkgnY0gmlwhLhIgb2Hb3BzdGFja4OFQgCJc2VjcDI1NmsxoQJ9FTIv8B9myn1MWaC_2lJ-sMoeCDkusCsk4BYHjjCq04N0Y3CCJAaDdWRwgiQG,enr:-J24QDXyyxvQYsd0yfsN0cRr1lZ1N11zGTplMNlW4xNEc7LkPXh0NAJ9iSOVdRO95GPYAIc6xmyoCCG6_0JxdL3a0zaGAYiOoAjFgmlkgnY0gmlwhAPckbGHb3BzdGFja4OFQgCJc2VjcDI1NmsxoQJwoS7tzwxqXSyFL7g0JM-KWVbgvjfB8JA__T7yYcYboN0Y3CCJAaDdWRwgiQG,enr:-J24QHmGyBwUZXIcsGYMaUqGGSl4CFdx9Tozu-vQCn5bHIQbR7On7dZbU61vYvfrJr30t0iahSqhc64J46MnUO2JvQaGAYiOoCKKgmlkgnY0gmlwhAPnCzSHb3BzdGFja4OFQgCJc2VjcDI1NmsxoQINc4fSijfbNIiGhcgvwjsjxVFJHUstK9L1T8OTKUjgloN0Y3CCJAaDdWRwgiQG,enr:-J24QG3ypT4xSu0gjb5PABCmVxZqBjVw9ca7pvsI8jl4KATYAnxBmfkaIuEqy9sKvDHKuNCsy57WwK9wTt2aQgcaDDyGAYiOoGAXgmlkgnY0gmlwhDbGmZaHb3BzdGFja4OFQgCJc2VjcDI1NmsxoQIeAK--tcLEiu7HvoUlbV52MspE0uCocsx1f_rYvRenIN0Y3CCJAaDdWRwgiQG
     volumes:
       - base_sepolia_data:/data
-      - jwt_shared:/jwt
+      - jwt_shared:/jwt:ro
     networks:
-      - base-sepolia-test
+      base-sepolia-test:
+        aliases:
+          - reth
 
 volumes:
   base_sepolia_data:
   jwt_shared:
+    external: true
 
 networks:
   base-sepolia-test:
     external: true
+
