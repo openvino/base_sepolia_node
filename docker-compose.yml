@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   base-sepolia:
     image: ghcr.io/openvino/base-sepolia:latest
