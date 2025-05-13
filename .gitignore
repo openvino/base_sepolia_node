@@ -1,1 +1,61 @@
+# Environment files
+.env
+.env.*
+
+# JWT secret
 jwt.hex
+/jwt/
+
+# Ethereum data directories (reth, prysm, etc.)
+/data/
+/consensus-data/
+/execution-data/
+/el-data/
+/cl-data/
+/op-data/
+
+# Allow README placeholders in data dirs
+!/data/README.md
+!/jwt/README.md
+
+# Snapshots and archives
+/snapshots/
+/*.tar
+/*.tar.zst
+/*.tgz
+/*.zip
+
+# Logs and runtime state
+*.log
+*.pid
+*.lock
+
+# Docker
+**/Dockerfile~
+docker-compose.override.yml
+docker-compose.override.yaml
+
+# Node / npm
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+
+# macOS
+.DS_Store
+
+# VSCode / JetBrains IDEs
+.vscode/
+.idea/
+
+# Misc
+*.swp
+*.bak
+*.tmp
+
