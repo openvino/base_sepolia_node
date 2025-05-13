@@ -1,4 +1,6 @@
-chain = "base-sepolia"
+[chain]
+chain_id = 2358  # <-- for Base Sepolia
+network = "base-sepolia"
 [stages.headers]
 downloader_max_concurrent_requests = 100
 downloader_min_concurrent_requests = 5
