@@ -12,7 +12,7 @@ services:
       - "30303:30303/udp"
     entrypoint: ["/entrypoint.sh"]
     volumes:
-      - docker-base-sepolia_base_sepolia_data:/data
+      - base_sepolia_data:/data
       - jwt_shared:/jwt:ro
     networks:
       base-sepolia-test:
@@ -20,7 +20,7 @@ services:
           - reth
 
 volumes:
-  docker-base-sepolia_base_sepolia_data:
+  base_sepolia_data:
     external: true
   jwt_shared:
     external: true
