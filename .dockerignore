@@ -1,0 +1,14 @@
+.git
+.gitignore
+*.log
+*.tar
+*.tar.*
+*.zst
+*.db
+*.bak
+__pycache__/
+node_modules/
+venv/
+data/
+reth-data/
+snapshots/
