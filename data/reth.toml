@@ -1,11 +1,4 @@
 # ------------------------------
-# 🛠️ CHAIN CONFIGURATION
-# ------------------------------
-[chain]
-chain_id = 2358                      # Base Sepolia chain ID
-network = "base-sepolia"            # Logical name for the network (useful for logs and debugging)
-
-# ------------------------------
 # 🔄 SYNC & STAGES
 # ------------------------------
 
