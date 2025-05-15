@@ -1,20 +1,28 @@
-# ------------------------------
-# 🛠️ CHAIN CONFIGURATION
-# ------------------------------
 [chain]
-chain_id = 2358                      # Base Sepolia chain ID
-network = "base-sepolia"            # Logical name for the network (useful for logs and debugging)
+chain_id = 2358  # <-- for Base Sepolia
+network = "base-sepolia"
 
-# ------------------------------
-# 🔄 SYNC & STAGES
-# ------------------------------
+[server]
+http = true
+http_addr = "0.0.0.0"
+http_port = 8545
+
+[authrpc]
+addr = "0.0.0.0"
+port = 8551
+
+[metrics]
+endpoint = "0.0.0.0:6060"
+
+[datadir]
+path = "/data"
 
 [stages.headers]
 downloader_max_concurrent_requests = 100
 downloader_min_concurrent_requests = 5
 downloader_max_buffered_responses = 100
 downloader_request_limit = 1000
-commit_threshold = 10000            # Number of headers to process before writing to DB
+commit_threshold = 10000
 
 [stages.bodies]
 downloader_request_limit = 200
@@ -56,23 +64,16 @@ commit_threshold = 100000
 commit_threshold = 100000
 
 [stages.etl]
-file_size = 524288000               # ETL file chunk size: 500MB
+file_size = 524288000
 
-# ------------------------------
-# ✂️ PRUNING CONFIGURATION
-# ------------------------------
 [prune]
-block_interval = 5                  # Prune every 5 blocks (conservative)
+block_interval = 5
 
 [prune.segments.receipts_log_filter]
-# Empty object means "prune receipts logs entirely"
 
-# ------------------------------
-# 🌐 PEER CONFIGURATION
-# ------------------------------
 [peers]
 refill_slots_interval = "5s"
-trusted_nodes = []                  # Add enodes here for static trusted nodes
+trusted_nodes = []
 trusted_nodes_only = false
 max_backoff_count = 5
 ban_duration = "12h"
@@ -100,15 +101,11 @@ medium = "3m"
 high = "15m"
 max = "1h"
 
-# ------------------------------
-# 📡 SESSION MANAGEMENT
-# ------------------------------
 [sessions]
 session_command_buffer = 32
 session_event_buffer = 260
 
 [sessions.limits]
-# Add custom limits if needed
 
 [sessions.initial_internal_request_timeout]
 secs = 20
@@ -121,14 +118,3 @@ nanos = 0
 [sessions.pending_session_timeout]
 secs = 20
 nanos = 0
-
-
-[network]
-boot_nodes = [
-  "enode://4e5e92199ee224a01932a377160aa432f31d0b351f84ab413a8e0a42f4f36476f8fb1cbe914af0d9aef0d51665c214cf653c651c4bbd9d5550a934f241f1682b@138.197.51.181:30303",
-  "enode://143e11fb766781d22d92a2e33f8f104cddae4411a122295ed1fdb6638de96a6ce65f5b7c964ba3763bba27961738fef7d3ecc739268f3e5e771fb4c87b6234ba@146.190.1.103:30303",
-  "enode://8b61dc2d06c3f96fddcbebb0efb29d60d3598650275dc469c22229d3e5620369b0d3dedafd929835fe7f489618f19f456fe7c0df572bf2d914a9f4e006f783a9@170.64.250.88:30303",
-  "enode://10d62eff032205fcef19497f35ca8477bea0eadfff6d769a147e895d8b2b8f8ae6341630c645c30f5df6e67547c03494ced3d9c5764e8622a26587b083b028e8@139.59.49.206:30303",
-  "enode://9e9492e2e8836114cc75f5b929784f4f46c324ad01daf87d956f98b3b6c5fcba95524d6e5cf9861dc96a2c8a171ea7105bb554a197455058de185fa870970c7c@138.68.123.152:30303"
-]
-

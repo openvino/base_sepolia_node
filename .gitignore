@@ -16,6 +16,7 @@ jwt.hex
 
 # Allow README placeholders in data dirs
 !/data/README.md
+!/data/reth.toml
 !/jwt/README.md
 
 # Snapshots and archives
