@@ -4,5 +4,5 @@
 
 exec reth node \
   --config /data/reth.toml \
+  --datadir /data \
   --authrpc.jwtsecret /jwt/jwt.hex
-
