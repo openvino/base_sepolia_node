@@ -13,7 +13,6 @@ RUN apt-get update && apt-get install -y \
 COPY entrypoint.sh /entrypoint.sh
 COPY op-reth /usr/local/bin/reth
 COPY base-sepolia.json /base-sepolia.json
-COPY data/reth.toml /data/reth.toml
 
 # Make entrypoint executable
 RUN chmod +x /entrypoint.sh
