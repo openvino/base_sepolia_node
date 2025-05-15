@@ -5,4 +5,5 @@
 exec reth node \
   --config /data/reth.toml \
   --datadir /data \
+  --chain /base-sepolia.json \
   --authrpc.jwtsecret /jwt/jwt.hex
