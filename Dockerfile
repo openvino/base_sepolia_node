@@ -20,8 +20,8 @@ RUN mkdir -p /data
 
 # Copy Reth configuration and entrypoint
 COPY entrypoint.sh /entrypoint.sh
-COPY base-sepolia.json /base-sepolia.json
-COPY reth.toml /data/reth.toml
+#COPY base-sepolia.json /base-sepolia.json
+COPY data/reth.toml /data/reth.toml
 
 RUN chmod +x /entrypoint.sh
 
