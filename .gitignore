@@ -20,6 +20,7 @@ jwt.hex
 !/jwt/README.md
 
 # Snapshots and archives
+/backup
 /snapshots/
 /*.tar
 /*.tar.zst
